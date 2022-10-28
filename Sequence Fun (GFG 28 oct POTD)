@@ -1,0 +1,9 @@
+int NthTerm(int n){ 
+		    const unsigned int mod = 1000000007;
+		    long long int ans=1;
+		    for(int i=1; i<=n; i++){
+		        ans = ((ans*i)+1)%mod;
+		    }
+		    return ans;
+		    // Code  here
+		}
