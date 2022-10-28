@@ -1,0 +1,30 @@
+ vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        //by the use of map and the sorting we have solved this problem.
+        
+        vector<vector<string>>ans;
+        int n = strs.size();
+        map<string , vector<int > > map1;
+        vector<string> v = strs;
+        int i;
+        for(i=0; i<n; i++)
+        {
+            sort(v[i].begin() , v[i].end());
+        }
+        for(i=0; i<n; i++)
+        {
+            map1[v[i]].push_back(i);
+        }
+        for(auto &itr:map1)
+        {
+            vector<int > index = itr.second;
+            vector<string > s;
+            s.clear();
+            for(int j = 0; j<index.size(); j++)
+            {
+                s.push_back(strs[index[j]]);   
+            }
+            ans.push_back(s);
+        }
+        return ans; 
+    }
+};
