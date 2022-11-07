@@ -1,0 +1,24 @@
+    int solve(vector<int >&v , int val)
+    {
+        int n = v.size();
+        int i;
+        for(i=n-1; i>=0; i--)
+        {
+            if(val >= v[i])
+            {
+                return v[i];
+            }
+        }
+    }
+    vector<int> minPartition(int N)
+    {
+        vector<int > v = {1,2,5,10,20,50,100,200,500,2000};
+        vector<int > ans;
+        while(N)
+        {
+            int factor = solve(v , N);
+            N -= factor;
+            ans.push_back(factor);
+        }
+        return ans;
+    }
